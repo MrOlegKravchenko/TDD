@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00e4e60c-2406-4456-9b53-c14b5fd5bfd9" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="00e4e60c-2406-4456-9b53-c14b5fd5bfd9" name="Changes" comment="leftover" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +26,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="board" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1685009305857</updated>
       <workItem from="1685009307041" duration="309000" />
-      <workItem from="1685051926907" duration="1480000" />
+      <workItem from="1685051926907" duration="1802000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1685053218439</created>
@@ -91,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685053218439</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="leftover">
+      <created>1685053874675</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685053874675</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +115,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="leftover" />
+    <option name="LAST_COMMIT_MESSAGE" value="leftover" />
   </component>
 </project>
