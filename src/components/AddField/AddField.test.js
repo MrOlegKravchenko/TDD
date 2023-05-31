@@ -17,10 +17,11 @@ describe('Add Field component', () => {
     });
 
     it('change home and away team inputs', async () => {
-        const container = shallow(<AddField />);
+        const container = shallow(<AddField currentMatches={null} setCurrentMatches={() => {}} />);
 
         const homeTeamElement = container.find('input#homeTeam');
         const awayTeamElement = container.find('input#awayTeam');
+        const buttonElement = container.find('button#addMatchButton');
 
         await act(async () => {
             homeTeamElement.at(0).simulate('change', { persist: jest.fn(), target: { value: 'home test' } });
@@ -30,6 +31,14 @@ describe('Add Field component', () => {
 
         expect(container.find('input#homeTeam').at(0).prop('value')).toEqual('home test');
         expect(container.find('input#awayTeam').at(0).prop('value')).toEqual('away test');
+
+        await act(async () => {
+            buttonElement.at(0).simulate('click', {});
+        });
+        container.update();
+
+        expect(container.find('input#homeTeam').at(0).prop('value')).toEqual('');
+        expect(container.find('input#awayTeam').at(0).prop('value')).toEqual('');
     });
 });
 

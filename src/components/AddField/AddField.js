@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AddField = ({ currentMatches, setCurrentMatches }) => {
+const AddField = ({ setCurrentMatches }) => {
     const [homeTeamName, setHomeTeamName] = useState('');
     const [awayTeamName, setAwayTeamName] = useState('');
 
@@ -22,15 +22,19 @@ const AddField = ({ currentMatches, setCurrentMatches }) => {
                value={awayTeamName}
                onChange={event => setAwayTeamName(event.target.value)}
            />
-           <button onClick={() => {
-               console.log('currentMatches', currentMatches);
-               setCurrentMatches(prevState => [...prevState, {
-                   id: homeTeamName+awayTeamName,
-                   homeTeam: homeTeamName,
-                   homeTeamScore: 0,
-                   awayTeam: awayTeamName,
-                   awayTeamScore: 0
-               }])
+           <button id='addMatchButton' onClick={() => {
+               setCurrentMatches((prevState) => ({
+                   ...prevState,
+                   [`${homeTeamName}_${awayTeamName}`]: ({
+                       id: `${homeTeamName}_${awayTeamName}`,
+                       homeTeam: homeTeamName,
+                       homeTeamScore: 0,
+                       awayTeam: awayTeamName,
+                       awayTeamScore: 0
+                   })
+               }))
+               setHomeTeamName('');
+               setAwayTeamName('');
            }}>
                Add new Match
            </button>
