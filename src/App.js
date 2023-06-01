@@ -15,8 +15,8 @@ function App() {
                 </h2>
             </header>
             <main>
-                <AddField currentMatches={currentMatches} setCurrentMatches={setCurrentMatches()} />
-                <CurrentMatches />
+                <AddField currentMatches={currentMatches} setCurrentMatches={setCurrentMatches} />
+                <CurrentMatches currentMatches={currentMatches} setCurrentMatches={setCurrentMatches} />
                 {/*<MatchesSummary />*/}
             </main>
         </div>

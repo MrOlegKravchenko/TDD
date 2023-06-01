@@ -29,8 +29,4 @@ describe('App component', () => {
     expect(addFieldComponent.find('AddField').exists()).toBeTruthy();
     expect(currentMatchesComponent.find('CurrentMatches').exists()).toBeTruthy();
   });
-
-  xit('add new Match to the board', () => {
-
-  });
 });
