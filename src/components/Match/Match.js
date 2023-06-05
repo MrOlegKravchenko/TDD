@@ -6,7 +6,7 @@ const Match = ({ id, currentMatches, setCurrentMatches }) => {
     const [awayTeamScore, setAwayTeamScore] = useState(0);
 
     return (
-       <div id={`matchField_${id}`}>
+       <div id={`matchField_${id}`} style={{ display: "inline-flex", padding: "4px"}}>
            <div id='homeTeam'>
                <label htmlFor='points'>
                    {currentMatches[id].homeTeam}
