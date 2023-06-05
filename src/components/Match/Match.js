@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
-const Match = ({ id, currentMatches, setCurrentMatches }) => {
-    const [homeTeamScore, setHomeTeamScore] = useState(0);
-    const [awayTeamScore, setAwayTeamScore] = useState(0);
+const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => {
+    const removeMatchHandler = matchId => {
+        const clone = { ...currentMatches };
+        delete clone[matchId];
+        setCurrentMatches(clone);
+    };
+
+    const updateMatchHandler = (matchId, teamScore, value) => {
+        const clone = { ...currentMatches };
+        clone[matchId][teamScore] = value;
+        setCurrentMatches(clone);
+    };
+
+    const finishMatchHandler = () => {
+        setMatchesSummary(prevState => ({
+            ...prevState,
+            [id]: currentMatches[id]
+        }));
+    };
 
     return (
        <div id={`matchField_${id}`} style={{ display: "inline-flex", padding: "4px"}}>
@@ -13,12 +29,12 @@ const Match = ({ id, currentMatches, setCurrentMatches }) => {
                </label>
                <input
                    type='number'
-                   id='homeTeamPoints'
+                   id={`${currentMatches[id].id}_homeTeamPoints`}
                    name='points'
                    min='0'
                    step='1'
-                   value={homeTeamScore}
-                   onChange={event => setHomeTeamScore(event.target.value)}
+                   value={currentMatches[id].homeTeamScore}
+                   onChange={event => updateMatchHandler(id, 'homeTeamScore', event.target.value)}
                />
            </div>
            &nbsp;
@@ -27,12 +43,12 @@ const Match = ({ id, currentMatches, setCurrentMatches }) => {
            <div id='awayTeam'>
                <input
                    type='number'
-                   id='awayTeamPoints'
+                   id={`${currentMatches[id].id}_awayTeamPoints`}
                    name='points'
                    min='0'
                    step='1'
-                   value={awayTeamScore}
-                   onChange={event => setAwayTeamScore(event.target.value)}
+                   value={currentMatches[id].awayTeamScore}
+                   onChange={event => updateMatchHandler(id, 'awayTeamScore', event.target.value)}
                />
                <label htmlFor='points'>
                    {currentMatches[id].awayTeam}
@@ -40,16 +56,18 @@ const Match = ({ id, currentMatches, setCurrentMatches }) => {
            </div>
            &nbsp;
            <button
-               id='removeMatch'
-               onClick={() => {
-                   const clone = { ...currentMatches };
-                   delete clone[id];
-                   setCurrentMatches(clone);
-               }}
+               id='removeMatchButton'
+               onClick={() => removeMatchHandler(id)}
            >
                Remove
            </button>
-           <button id='finishMatch'>
+           <button
+               id='finishMatchButton'
+               onClick={() => {
+                   finishMatchHandler();
+                   removeMatchHandler(id);
+               }}
+           >
                Finish
            </button>
        </div>

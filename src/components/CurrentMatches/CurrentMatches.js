@@ -2,10 +2,11 @@ import React from 'react';
 
 import Match from '../Match/Match';
 
-const CurrentMatches = ({ currentMatches, setCurrentMatches }) => {
+const CurrentMatches = ({ currentMatches, setCurrentMatches, setMatchesSummary }) => {
     return (
        <div id='currentMatchesField'>
-           {currentMatches !== null && Object.values(currentMatches)
+           <h3>Current Matches</h3>
+           {Object.values(currentMatches)
                ?.map(currentMatch => {
                    return (
                        <React.Fragment key={currentMatch.id}>
@@ -13,6 +14,7 @@ const CurrentMatches = ({ currentMatches, setCurrentMatches }) => {
                                id={currentMatch.id}
                                currentMatches={currentMatches}
                                setCurrentMatches={setCurrentMatches}
+                               setMatchesSummary={setMatchesSummary}
                            />
                        </React.Fragment>
                    )})}

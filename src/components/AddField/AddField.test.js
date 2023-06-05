@@ -4,10 +4,11 @@ import { act } from '@testing-library/react';
 
 import AddField from './AddField';
 
+const mockSetCurrentMatches = jest.fn();
 
 describe('Add Field component', () => {
     it('renders home and away team inputs', () => {
-        const container = shallow(<AddField />);
+        const container = shallow(<AddField setCurrentMatches={mockSetCurrentMatches} />);
 
         const homeTeamElement = container.find('input#homeTeam');
         const awayTeamElement = container.find('input#awayTeam');
@@ -17,7 +18,7 @@ describe('Add Field component', () => {
     });
 
     it('change home and away team inputs', async () => {
-        const container = shallow(<AddField currentMatches={null} setCurrentMatches={() => {}} />);
+        const container = shallow(<AddField setCurrentMatches={mockSetCurrentMatches} />);
 
         const homeTeamElement = container.find('input#homeTeam');
         const awayTeamElement = container.find('input#awayTeam');

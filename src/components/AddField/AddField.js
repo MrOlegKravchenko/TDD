@@ -4,6 +4,19 @@ const AddField = ({ setCurrentMatches }) => {
     const [homeTeamName, setHomeTeamName] = useState('');
     const [awayTeamName, setAwayTeamName] = useState('');
 
+    const createMatchHandler = () => {
+        setCurrentMatches(prevState => ({
+            ...prevState,
+            [`${homeTeamName}_${awayTeamName}`]: ({
+                id: `${homeTeamName}_${awayTeamName}`,
+                homeTeam: homeTeamName,
+                homeTeamScore: 0,
+                awayTeam: awayTeamName,
+                awayTeamScore: 0
+            })
+        }));
+    };
+
     return (
        <div id='addField'>
            <input
@@ -22,20 +35,14 @@ const AddField = ({ setCurrentMatches }) => {
                value={awayTeamName}
                onChange={event => setAwayTeamName(event.target.value)}
            />
-           <button id='addMatchButton' onClick={() => {
-               setCurrentMatches((prevState) => ({
-                   ...prevState,
-                   [`${homeTeamName}_${awayTeamName}`]: ({
-                       id: `${homeTeamName}_${awayTeamName}`,
-                       homeTeam: homeTeamName,
-                       homeTeamScore: 0,
-                       awayTeam: awayTeamName,
-                       awayTeamScore: 0
-                   })
-               }))
-               setHomeTeamName('');
-               setAwayTeamName('');
-           }}>
+           <button
+               id='addMatchButton'
+               onClick={() => {
+                   createMatchHandler();
+                   setHomeTeamName('');
+                   setAwayTeamName('');
+               }}
+           >
                Add new Match
            </button>
        </div>
