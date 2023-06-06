@@ -1,0 +1,24 @@
+.MatchesSummary {
+    margin: 12px;
+    padding: 4px 20px;
+    border-radius: 15px;
+    box-shadow: 10px 5px 20px lightgray;
+
+    h3 {
+        display: flex;
+    }
+
+    .eachFinishedMatch {
+        margin-bottom: 1vh;
+        display: flex;
+        align-items: baseline;
+
+        .matchNumber {
+            margin-right: 3vw;
+        }
+        .matchScore {
+            margin: 0 1vw;
+            font-size: x-large;
+        }
+    }
+}
