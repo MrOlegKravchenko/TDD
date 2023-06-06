@@ -1,0 +1,15 @@
+.match {
+    display: inline-flex;
+    padding: 4px;
+
+    .matchInput {
+        padding: 0;
+        width: 30px;
+        margin: 0 10px;
+    }
+    .matchButtons {
+        padding: 10px;
+        border-radius: 15px;
+        margin: 0 1vw;
+    }
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import style from './Match.module.scss'
+
 
 const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => {
     const removeMatchHandler = matchId => {
@@ -26,7 +28,7 @@ const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => 
     };
 
     return (
-       <div id={`matchField_${id}`} style={{ display: 'inline-flex', padding: '4px'}}>
+       <div id={`matchField_${id}`} className={style.match}>
            <div id='homeTeam'>
                <label  htmlFor='points'>
                    {currentMatches[id].homeTeam}
@@ -35,11 +37,7 @@ const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => 
                    type='number'
                    id={`${currentMatches[id].id}_homeTeamPoints`}
                    name='points'
-                   style={{
-                       padding: 0,
-                       width: '30px',
-                       margin: '0 10px'
-                   }}
+                   className={style.matchInput}
                    min='0'
                    step='1'
                    value={currentMatches[id].homeTeamScore}
@@ -54,11 +52,7 @@ const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => 
                    type='number'
                    id={`${currentMatches[id].id}_awayTeamPoints`}
                    name='points'
-                   style={{
-                       padding: 0,
-                       width: '30px',
-                       margin: '0 10px'
-                   }}
+                   className={style.matchInput}
                    min='0'
                    step='1'
                    value={currentMatches[id].awayTeamScore}
@@ -71,6 +65,7 @@ const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => 
            &nbsp;
            <button
                id='removeMatchButton'
+               className={style.matchButtons}
                style={{backgroundColor: 'lightcoral'}}
                onClick={() => removeMatchHandler(id)}
            >
@@ -78,6 +73,7 @@ const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => 
            </button>
            <button
                id='finishMatchButton'
+               className={style.matchButtons}
                style={{backgroundColor: 'lightblue'}}
                onClick={() => {
                    finishMatchHandler();

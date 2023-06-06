@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
-import './App.css';
 import AddField from './components/AddField/AddField';
 import CurrentMatches from './components/CurrentMatches/CurrentMatches';
 import MatchesSummary from './components/MatchesSummary/MatchesSummary';
+
+import styles from './App.module.scss';
 
 function App() {
     const [currentMatches, setCurrentMatches] = useState({});
     const [matchesSummary, setMatchesSummary] = useState({});
 
     return (
-        <div
-            className='App'
-            style={{
-                margin: '10vh auto',
-                padding: '3vh',
-                width: '60vw',
-                borderRadius: '20px',
-                boxShadow: '15px 10px 10px 15px lightgray',
-            }}
-        >
+        <div className={styles.App}>
             <header>
                 <h2>
                     Live Football World Cup Scoreboard
