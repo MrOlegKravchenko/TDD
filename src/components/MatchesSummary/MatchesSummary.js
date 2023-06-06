@@ -14,19 +14,25 @@ const MatchesSummary = ({ matchesSummary }) => {
        <div id='finishedMatchesField' style={{margin: '12px'}}>
            <h3>Summary</h3>
            {Object.values(orderedList)
-               ?.map(match => (
-                       <div key={`finishedMatch_${match.id}`}>
+               ?.map((match, i) => (
+                       <div
+                           key={`finishedMatch_${match.id}`}
+                           style={{marginBottom: '1vh'}}
+                       >
+                           <span style={{marginRight: '3vw'}}>{i+1}.</span>
                            <span id={`finishedMatch_${match.id}_homeTeam`}>
                                <strong className='finishedHomeTeam'>
                                    {match.homeTeam}
                                </strong>
-                               <span>{match.homeTeamScore}</span>
+                               <span style={{margin: '0 1vw', fontSize: 'x-large'}}>
+                                   {match.homeTeamScore}
+                               </span>
                            </span>
                            &nbsp;
                            :
                            &nbsp;
                            <span id={`finishedMatch_${match.id}_awayTeam`}>
-                               <span>{match.awayTeamScore}</span>
+                               <span style={{margin: '0 1vw', fontSize: 'x-large'}}>{match.awayTeamScore}</span>
                                <strong>
                                    {match.awayTeam}
                                </strong>

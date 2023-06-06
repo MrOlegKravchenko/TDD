@@ -37,6 +37,7 @@ const AddField = ({ setCurrentMatches }) => {
            />
            <button
                id='addMatchButton'
+               style={{backgroundColor: 'lightblue'}}
                onClick={() => {
                    createMatchHandler();
                    setHomeTeamName('');

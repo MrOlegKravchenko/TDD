@@ -28,13 +28,18 @@ const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => 
     return (
        <div id={`matchField_${id}`} style={{ display: 'inline-flex', padding: '4px'}}>
            <div id='homeTeam'>
-               <span>
+               <label  htmlFor='points'>
                    {currentMatches[id].homeTeam}
-               </span>
+               </label>
                <input
                    type='number'
                    id={`${currentMatches[id].id}_homeTeamPoints`}
                    name='points'
+                   style={{
+                       padding: 0,
+                       width: '30px',
+                       margin: '0 10px'
+                   }}
                    min='0'
                    step='1'
                    value={currentMatches[id].homeTeamScore}
@@ -49,24 +54,31 @@ const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => 
                    type='number'
                    id={`${currentMatches[id].id}_awayTeamPoints`}
                    name='points'
+                   style={{
+                       padding: 0,
+                       width: '30px',
+                       margin: '0 10px'
+                   }}
                    min='0'
                    step='1'
                    value={currentMatches[id].awayTeamScore}
                    onChange={event => updateMatchHandler(id, 'awayTeamScore', event.target.value)}
                />
-               <span>
+               <label htmlFor='points'>
                    {currentMatches[id].awayTeam}
-               </span>
+               </label>
            </div>
            &nbsp;
            <button
                id='removeMatchButton'
+               style={{backgroundColor: 'lightcoral'}}
                onClick={() => removeMatchHandler(id)}
            >
                Remove
            </button>
            <button
                id='finishMatchButton'
+               style={{backgroundColor: 'lightblue'}}
                onClick={() => {
                    finishMatchHandler();
                    removeMatchHandler(id);
