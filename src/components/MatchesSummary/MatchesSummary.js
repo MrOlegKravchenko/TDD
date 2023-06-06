@@ -11,7 +11,7 @@ const MatchesSummary = ({ matchesSummary }) => {
             .map(el => matchesSummary[el.id]);
 
     return (
-       <div id='finishedMatchesField' style={{margin: "12px", border: "2px solid gray"}}>
+       <div id='finishedMatchesField' style={{margin: '12px'}}>
            <h3>Summary</h3>
            {Object.values(orderedList)
                ?.map(match => (

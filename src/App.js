@@ -9,7 +9,16 @@ function App() {
     const [matchesSummary, setMatchesSummary] = useState({});
 
     return (
-        <div className='App'>
+        <div
+            className='App'
+            style={{
+                margin: '10vh auto',
+                padding: '3vh',
+                width: '60vw',
+                borderRadius: '20px',
+                boxShadow: '15px 10px 10px 15px lightgray',
+            }}
+        >
             <header>
                 <h2>
                     Live Football World Cup Scoreboard

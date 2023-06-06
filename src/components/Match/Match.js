@@ -15,18 +15,22 @@ const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => 
     };
 
     const finishMatchHandler = () => {
+        const timestamp = new Date().getTime();
         setMatchesSummary(prevState => ({
             ...prevState,
-            [id]: currentMatches[id]
+            [id]: {
+                ...currentMatches[id],
+                timestamp
+            }
         }));
     };
 
     return (
-       <div id={`matchField_${id}`} style={{ display: "inline-flex", padding: "4px"}}>
+       <div id={`matchField_${id}`} style={{ display: 'inline-flex', padding: '4px'}}>
            <div id='homeTeam'>
-               <label htmlFor='points'>
+               <span>
                    {currentMatches[id].homeTeam}
-               </label>
+               </span>
                <input
                    type='number'
                    id={`${currentMatches[id].id}_homeTeamPoints`}
@@ -50,9 +54,9 @@ const Match = ({ id, currentMatches, setCurrentMatches, setMatchesSummary }) => 
                    value={currentMatches[id].awayTeamScore}
                    onChange={event => updateMatchHandler(id, 'awayTeamScore', event.target.value)}
                />
-               <label htmlFor='points'>
+               <span>
                    {currentMatches[id].awayTeam}
-               </label>
+               </span>
            </div>
            &nbsp;
            <button
