@@ -1,5 +1,11 @@
 .currentMatches {
+    margin: 12px;
+    padding: 1px 20px;
     background-color: lightgrey;
     border-radius: 15px;
     box-shadow: 10px 5px 20px lightgray;
+
+    h3 {
+        display: flex;
+    }
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import style from './MatchesSummary.module.scss'
+
 const MatchesSummary = ({ matchesSummary }) => {
     const cloneMatches = JSON.parse(JSON.stringify(matchesSummary));
 
@@ -11,20 +13,20 @@ const MatchesSummary = ({ matchesSummary }) => {
             .map(el => matchesSummary[el.id]);
 
     return (
-       <div id='finishedMatchesField' style={{margin: '12px'}}>
+       <div id='finishedMatchesField' className={style.MatchesSummary}>
            <h3>Summary</h3>
            {Object.values(orderedList)
                ?.map((match, i) => (
                        <div
                            key={`finishedMatch_${match.id}`}
-                           style={{marginBottom: '1vh'}}
+                           className={style.eachFinishedMatch}
                        >
-                           <span style={{marginRight: '3vw'}}>{i+1}.</span>
+                           <span className={style.matchNumber}>{i+1}.</span>
                            <span id={`finishedMatch_${match.id}_homeTeam`}>
-                               <strong className='finishedHomeTeam'>
+                               <strong className={style.finishedHomeTeam}>
                                    {match.homeTeam}
                                </strong>
-                               <span style={{margin: '0 1vw', fontSize: 'x-large'}}>
+                               <span className={style.matchScore}>
                                    {match.homeTeamScore}
                                </span>
                            </span>
@@ -32,7 +34,7 @@ const MatchesSummary = ({ matchesSummary }) => {
                            :
                            &nbsp;
                            <span id={`finishedMatch_${match.id}_awayTeam`}>
-                               <span style={{margin: '0 1vw', fontSize: 'x-large'}}>{match.awayTeamScore}</span>
+                               <span className={style.matchScore}>{match.awayTeamScore}</span>
                                <strong>
                                    {match.awayTeam}
                                </strong>
